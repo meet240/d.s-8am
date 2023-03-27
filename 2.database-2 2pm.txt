@@ -1,0 +1,121 @@
+show databases;
+
+drop database a;
+
+create database a;
+use a;
+drop database a;
+
+drop database a1;
+
+show databases;
+
+create database a;
+
+use a;
+
+create table a1(c1 int ,c2 varchar(20));
+
+desc a1;
+
+insert into a1 values(1,"python");
+
+drop table a1;
+
+create table a2(c1 int ,c2 varchar(20));
+
+show tables;
+
+drop table a2;
+
+
+
+
+
+
+
+use a ;
+
+create table a1(c1 int,c2 varchar(20),c3 date);
+
+create table a2(c1 int,c2 varchar(20),c3 date);
+
+
+insert into a1(c1,c2,c3) values(1,'abc',now());
+insert into a1(c1,c2,c3) values(1,'xyz',now());
+insert into a1(c1,c2,c3) values(1,'aaa',"2023-01-13");
+insert into a1(c1,c2,c3) values(1,'yyy',"2023-01-13");
+
+
+
+select c1 from a1;
+select c2 from a1;
+select c3 from a1;
+
+
+select * from a1;
+
+
+
+select c1,c3 from a1;
+select c1,c2 from a1;
+select c1,c2,c3 from a1;
+
+
+
+
+
+insert into a1 values(2,'meet','2020-2-2');
+select * from a1;
+
+insert into a1(c1,c2) values(4,'xyx');
+desc a1;
+select * from a1;
+
+insert into a1(c1,c3) values(4,'2023-01-13');
+desc a1;
+select * from a1;
+
+insert into a1(c2,c3) values("meet4",'2023-01-13');
+desc a1;
+select * from a1;
+
+
+
+
+
+
+create table a3(c1 int not null, c2 varchar(20),c3 varchar(22));
+desc a3;
+
+insert into a3(c2,c3) values("meet","python"); --> error
+
+insert into a3(c1,c3) values(4,"meet");
+
+select * from a3;
+
+
+insert into a3(c1,c2) values(1,'abc'),(2,'xyz'),(3,'yyy'),(4,'zzz');
+
+select * from a3;
+
+insert into a3 values(11,"aaaa","python3");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

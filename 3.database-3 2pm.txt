@@ -1,0 +1,123 @@
+use a;
+
+show tables;
+
+select * from a1;
+select * from a2;
+select * from a3;
+
+
+
+create table a3(c1 int not null, c2 varchar(20),c3 varchar(22));
+insert into a3(c1,c2) values(1,'abc'),(2,'xyz'),(3,'yyy'),(4,'zzz');
+
+select * from a3;
+
+
+select * from a3 where c1=2;
+select * from a3 where c1<2;
+select * from a3 where c1>2;
+select * from a3 where c1!=2;
+
+
+
+select * from a3 where c1 in(3,4);
+select * from a3 where c1 not in(1,3);
+
+select * from a3 where c1 not in(1,3,4);
+
+
+select * from a3 where c3 in('meet');
+select * from a3 where c3 not in('meet');
+
+select * from a3 where c2 not in("xyz");
+
+
+select * from a3 where c1 between 1 and 3;
+select * from a3 where c1 between 1 and 4;
+
+select * from a3 where c2 between 'a' and 'x';
+select * from a3 where c2 between 'a' and 'z';
+
+
+
+select * from a3 where c3=null;      #wrong command for null
+select * from a3 where c3 is null;    # for null command
+
+
+select * from a3 where c1 in (1,2,3,11) and c2='abc';
+select * from a3 where c1 in (1,2,3,11) and c2='xyz';
+
+
+select * from a3 where c1 in (1,2,3,11) or c2='xyz';
+select * from a3 where c1 in (1,2,3) or c2='abc';
+
+
+delete from a3 where c1=1;  #specific row delete
+delete from a3;             # all rows delete if where not write there
+
+desc a3;
+
+
+
+
+insert into a3 values(1,"a","python"),(2,'b','python2'),(3,'c','python3'),(4,'d','data science'),(5,'e','machine learning');
+
+update a3 set c2='name',c3=now() where c1=2; #specific row update
+update a3 set c2='hello',c3=now() where c1=4; #specific row update
+
+update a3 set c2='name';  #if where not write then update all rows
+update a3 set c2='bye' where c1 in(2,3,4);
+select * from a3;
+
+
+
+alter table a3 add c4 varchar(20); #add new column
+alter table a3 add c5 varchar(20) not null;
+
+select * from a3;
+desc a3;
+
+
+alter table a3 drop column c5;
+desc a3;
+select * from a3;
+
+alter table a3 add c5 varchar(20) default 'a';
+select * from a3;
+desc a3;
+
+insert into a3(c1) values(100);
+
+
+alter table a3 modify c1 int null;    #null ko ab not null banaya means modify
+
+insert into a3(c2) values("hi");
+select * from a3;
+
+
+
+
+
+#modify use to change data type also int to varchar
+
+alter table a3 change c2 c22 varchar(20); #change column name
+desc a3;
+
+alter table a3 change c22 c2 varchar(11);
+
+
+# we can not change varchar to integer but we change c1 integer column to varchar menas in string
+
+
+update a3 set c2=1; #but this one is in string bcz c2 is varchar
+
+
+alter table a3 change c2 c2 int;  #now here we change data type varchar to int
+
+
+
+alter table a3 rename to a33;  #change table name by rename
+
+
+

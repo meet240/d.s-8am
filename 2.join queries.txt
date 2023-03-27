@@ -1,0 +1,93 @@
+create table t1 (c1 int, c2 varchar(100));
+
+
+insert into t1 values(1,'a'),(2,'b'),(3,'c');
+
+create table t2 (c1 int, c3 varchar(100));
+
+insert into t2 value(3,'x'),(4,'y'),(5,'z');
+
+
+select * from t1;
+
+select * from t2;
+
+
+
+-- cross join
+
+
+select * from t1, t2;
+
+
+select t1.c1,t1.c2,t2.c3 from t1,t2;
+
+select t1.c1,c2,c3 from t1,t2;
+
+select c1,c2,c3 from t1,t2; --- query fails with ambiguos column error
+
+
+select * from t1 cross join t2;
+
+
+select t1.*,c3 from t1,t2;
+
+
+
+
+
+
+
+
+
+-- old syntax of Joins
+
+
+select * from t1 , t2 
+where t1.c1=t2.c1;
+
+
+
+-- New syntax (Ansi Standard)
+
+
+select * from t1 inner join t2 
+where t1.c1=t2.c1;
+
+select * from t1 left join t2
+on t1.c1=t2.c1;
+
+
+
+select * from t1 inner join t2 
+on t1.c1=t2.c1;
+
+
+select * from t1 Right join t2
+on t1.c1=t2.c1;
+
+select * from t1 Full join t2
+on t1.c1=t2.c1; -- will not work in MySQL
+
+
+select * from T1 left join t2
+on t1.c1=t2.c1
+union
+select * from T1 right join t2
+on t1.c1=t2.c1;
+
+select * from T1 left join t2
+on t1.c1=t2.c1
+where t2.c3 is null
+union
+select * from T1 right join t2
+on t1.c1=t2.c1
+where t1.c2 is null;
+
+
+
+
+
+
+
+

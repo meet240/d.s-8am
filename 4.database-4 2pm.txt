@@ -1,0 +1,141 @@
+use a;
+
+
+create table t1 (c1 int, c2 varchar(100));
+
+insert into t1 values(1,'a'),(2,'b'),(3,'c');
+
+create table t2 (c1 int, c3 varchar(100));
+
+insert into t2 value(3,'x'),(4,'y'),(5,'z');
+
+
+select * from t1;
+
+select * from t2;
+
+
+cross join------------>
+
+
+select * from t1, t2;
+
+
+select t1.c1,t1.c2,t2.c3 from t1,t2;
+
+select t1.c1,c2,c3 from t1,t2;
+
+
+select * from t1 cross join t2;
+
+
+inner join---------->
+
+select * from t1 , t2 
+where t1.c1=t2.c1;
+
+
+
+
+select * from t1 left join t2
+on t1.c1=t2.c1;
+
+
+select * from t2 left join t1
+on t1.c1=t2.c1;
+
+
+
+select * from t1 Right join t2
+on t1.c1=t2.c1;
+
+select * from t2 Right join t1
+on t1.c1=t2.c1;
+
+
+
+
+select * from T1 left join t2
+on t1.c1=t2.c1
+union
+select * from T1 right join t2
+on t1.c1=t2.c1;
+
+
+
+
+unioun and minus-------------->
+
+create table a(id int);
+create table b (id int);
+
+show tables;
+
+insert into a values(1),(2),(3);
+insert into b values(3),(4),(5);
+
+select * from a;
+select * from b;
+
+select * from a
+union 
+select * from b;
+
+
+select * from b
+union 
+select * from a;
+
+
+
+select * from a
+union  all
+select * from b;
+
+
+
+select * from a
+intersect
+select * from b;
+
+
+
+select * from a where id not in (select id from b);
+
+
+
+
+
+
+Select deptname, sum(salary) from emp join dept on emp.deptid=dept.deptid
+group by deptname;
+
+Select sum(salary) from emp;
+
+Select avg(salary) from emp;
+
+select count(*) from emp;
+
+
+select count(ename) from emp;
+
+
+
+Select deptname,ename,salary from emp join dept
+On emp.deptid=dept.deptid
+Order by deptname ,salary desc;
+
+
+Select deptname,ename,salary from emp join dept
+On emp.deptid=dept.deptid
+Order by deptname ,salary desc;
+
+
+
+
+
+
+
+
+
+
